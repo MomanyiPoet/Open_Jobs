@@ -24,7 +24,7 @@
 ### HTML + CSS + Tailwind Development
 - This section shows the code templates.
 - The templates are in the folder blueprint.
-- Link to Open Jobs - [Open Jobs Template]()
+- Link to Open Jobs - [Open Jobs Template](https://momanyipoet.github.io/Open_Jobs/blueprint/build/)
 
 ## Useful Resources
 - [Tailwind Website](https://tailwindcss.com/)
