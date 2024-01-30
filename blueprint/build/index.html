@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Momanyi Brian" />
+    <meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.png" />
+    <meta property="og:description" content="The Mozilla Developer Network (MDN) provides
+    information about Open Web technologies including HTML, CSS, and APIs for both websites
+    and HTML Apps." />
+    <meta property="og:title" content="Mozilla Developer Network" />
+
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
+
+    <!-- Title -->
+    <title>Open Jobs</title>
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/a9cdceb046.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body class="min-h-screen font-Poppins bg-cream">
+    <nav class="shadow-xl">
+        <div class="navbar bg-cream max-w-7xl mx-auto">
+            <!-- Nav-item-left -->
+            <div class="navbar-start text-secondary font-semibold">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-xl bg-cream rounded-box w-52">
+                        <li><a class="text-primary">Home</a></li>
+                        <li><a>Jobs</a></li>
+                        <li><a>Internships</a></li>
+                        <li><a>Scholarships</a></li>
+                        <li>
+                            <a>More</a>
+                            <ul class="p-2">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </li>
+                        <li><a>Contact Us</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost text-xl text-primary">OPEN <span class="bg-gradient-to-r from-primary via-[#B38B59] to-primary text-transparent bg-clip-text">JOBS</span></a>
+            </div>
+
+            <!-- Nav-item-right -->
+            <div class="navbar-center hidden lg:flex text-secondary font-semibold">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a class="text-primary">Home</a></li>
+                    <li><a>Jobs</a></li>
+                    <li><a>Internships</a></li>
+                    <li><a>Scholarships</a></li>
+                    <li>
+                        <details>
+                            <summary>More</summary>
+                            <ul class="p-2 bg-cream">
+                                <li><a>Submenu 1</a></li>
+                                <li><a>Submenu 2</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a>Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <form method="post" class="flex flex-row items-center justify-center space-x-4 bg-cream text-darky rounded-3xl py-1 px-4">
+                    <input type="text" class="input input-xs w-full max-w-xs font-normal italic text-xs sm:text-sm bg-whity" placeholder="Search" required/>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass-location fa-shake text-darky text-lg"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="flex flex-row w-full items-center">
+            <div class="bg-primary h-0.5 md:h-1 w-1/4"></div>
+            <div class="bg-[#B38B59] h-0.5 md:h-1 w-1/4"></div>
+            <div class="bg-primary h-0.5 md:h-1 w-1/4"></div>
+            <div class="bg-[#0069A8] h-0.5 md:h-1 w-1/4"></div>
+        </div>
+    </nav>
+</body>
+</html>
