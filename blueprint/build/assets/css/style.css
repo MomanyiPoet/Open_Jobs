@@ -2394,6 +2394,10 @@ html{
     margin-bottom: 2rem;
   }
 
+  .lg\:mb-0{
+    margin-bottom: 0px;
+  }
+
   .lg\:flex{
     display: flex;
   }
@@ -2433,6 +2437,10 @@ html{
 @media (min-width: 1280px){
   .xl\:mt-0{
     margin-top: 0px;
+  }
+
+  .xl\:mb-0{
+    margin-bottom: 0px;
   }
 
   .xl\:w-96{
