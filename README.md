@@ -44,19 +44,22 @@
 ### Install Node.js
 - Node.js installed on your computer. Download it from the official website.
 
-### Creating a React App
+### Creating a React App using Vite
 
 ```bash
 # Terminal or command prompt.
-npm install -g create-react-app - install npm globally
-npx create-react-app frontend
-cd frontend
+npm create vite@latest
+cd my-project
+npm install
+npm run dev
+
 npm install react-router-dom
 npm i @vercel/analytics
 
 # Install tailwindcss via npm, and create your tailwind.config.js file.
-npm install -D tailwindcss
-npx tailwindcss init
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npm i -D daisyui@latest
 
 # Tailwind directives to your CSS.
 @tailwind base;
@@ -67,7 +70,8 @@ npx tailwindcss init
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
@@ -75,7 +79,7 @@ module.exports = {
   plugins: [],
 }
 
-npm start
+npm run dev
 ```
 
 ## Useful Resources

@@ -27,6 +27,7 @@ cd blueprint
 # Install tailwindcss via npm, and create your tailwind.config.js file.
 npm install -D tailwindcss
 npx tailwindcss init
+npm i -D daisyui@latest
 npm init -y # updates package.json file
 ```
 
