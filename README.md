@@ -53,6 +53,28 @@ npx create-react-app frontend
 cd frontend
 npm install react-router-dom
 npm i @vercel/analytics
+
+# Install tailwindcss via npm, and create your tailwind.config.js file.
+npm install -D tailwindcss
+npx tailwindcss init
+
+# Tailwind directives to your CSS.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+# Add the paths to all of your template files in your tailwind.config.js file.
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
 npm start
 ```
 
