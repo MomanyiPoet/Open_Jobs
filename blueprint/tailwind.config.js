@@ -7,11 +7,13 @@ module.exports = {
         Poppins: ['Poppins'],
       },
       colors: {
-        primary: '#017C6E',
+        // primary: '#017C6E',
+        primary: '#0a66c2',
         secondary: '#363753',
         whity: '#FEFEFE',
         darky: '#262626',
         cream: '#DFE3EE',
+        gold: '#B38B59'
       },
     },
   },
