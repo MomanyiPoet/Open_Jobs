@@ -48,6 +48,7 @@
     pip install django-cors-headers
     python -m pip install Pillow
     django-admin startproject openjobs .
+    python manage.py collectstatic
     python manage.py runserver
     ```
 
