@@ -9,6 +9,7 @@
     - [Figma Design](#figma-design)
     - [HTML + CSS + Tailwind Development](#html-+-css+-tailwind-development)
     - [React Development](#react-development)
+    - [Django Development](#django-development)
 - [Useful Resources](#useful-resources)
 - [Author](#author)
 
@@ -41,46 +42,11 @@
 - This section identifies the React code development. The templates have been modified to become reactive. 
 - The codes are in the folder frontend.
 
-### Install Node.js
-- Node.js installed on your computer. Download it from the official website.
+## Django Development
+- This section identifies the backend code development.
+- The codes are in the folder backend.
 
-### Creating a React App using Vite
 
-```bash
-# Terminal or command prompt.
-npm create vite@latest
-cd my-project
-npm install
-npm run dev
-
-npm install react-router-dom
-npm i @vercel/analytics
-
-# Install tailwindcss via npm, and create your tailwind.config.js file.
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-npm i -D daisyui@latest
-
-# Tailwind directives to your CSS.
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-# Add the paths to all of your template files in your tailwind.config.js file.
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
-npm run dev
-```
 
 ## Useful Resources
 - [Tailwind Website](https://tailwindcss.com/)

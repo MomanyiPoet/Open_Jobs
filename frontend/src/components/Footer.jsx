@@ -19,7 +19,7 @@ function Footer() {
                                 <a href="./index.html" className="hover:underline">Home</a>
                             </li>
                             <li className="mb-4">
-                                <a href="./pages.html" class="hover:underline">Jobs</a>
+                                <a href="./pages.html" className="hover:underline">Jobs</a>
                             </li>
                             <li className="mb-4">
                                 <a href="./about.html" className="hover:underline">About Open Jobs</a>

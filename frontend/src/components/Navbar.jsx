@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({activeLink}) {
   return (
     <nav className="shadow-xl sticky top-0 z-50">
         <div className="navbar bg-cream max-w-7xl mx-auto">
@@ -14,17 +15,17 @@ function Navbar() {
                         </svg>
                     </div>
                     <ul tabIndex="0" className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow-xl bg-cream rounded-box w-52">
-                        <li><a href="./index.html" className="text-primary">Home</a></li>
-                        <li><a href="./pages.html">Jobs</a></li>
-                        <li><a href="./pages.html">Internships</a></li>
-                        <li><a href="./pages.html">Scholarships</a></li>
+                        <li><Link to="/" className="text-primary">Home</Link></li>
+                        <li><Link to="/page">Jobs</Link></li>
+                        <li><Link to="/page">Internships</Link></li>
+                        <li><Link to="/page">Scholarships</Link></li>
                         <li>
-                            <a href="">More</a>
+                            <a to="">More</a>
                             <ul className="p-2">
-                                <li><a href="./about.html">About Us</a></li>
+                                <li><Link to="/about">About Us</Link></li>
                                 <li><a href="#contact-us">Contact Us</a></li>
-                                <li><a href="#">Advice</a></li>
-                                <li><a href="#">Training</a></li>
+                                <li><Link to="/advice">Advice</Link></li>
+                                <li><Link to="/training">Training</Link></li>
                             </ul>
                         </li>
                     </ul>
@@ -35,18 +36,18 @@ function Navbar() {
             {/* Nav-item-right */}
             <div className="navbar-center hidden lg:flex text-secondary font-semibold">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a href="./index.html" className="text-primary">Home</a></li>
-                    <li><a href="./pages.html">Jobs</a></li>
-                    <li><a href="./pages.html">Internships</a></li>
-                    <li><a href="./pages.html">Scholarships</a></li>
+                    <li><Link to="/" className="text-primary">Home</Link></li>
+                    <li><Link to="/page">Jobs</Link></li>
+                    <li><Link to="/page">Internships</Link></li>
+                    <li><Link to="/page">Scholarships</Link></li>
                     <li>
                         <details>
                             <summary>More</summary>
                             <ul className="p-2 bg-cream">
-                                <li><a href="./about.html">About Us</a></li>
+                                <li><Link to="/about">About Us</Link></li>
                                 <li><a href="#contact-us">Contact Us</a></li>
-                                <li><a href="#">Advice</a></li>
-                                <li><a href="#">Training</a></li>
+                                <li><Link to="/advice">Advice</Link></li>
+                                <li><Link to="/training">Training</Link></li>
                             </ul>
                         </details>
                     </li>

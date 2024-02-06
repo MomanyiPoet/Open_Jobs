@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../layouts/landing/Navbar'
+import Navbar from '../components/Navbar'
 import Header from '../layouts/landing/Header'
 import CategoriesPost from '../layouts/landing/CategoriesPost'
 import Contact from '../components/Contact'
