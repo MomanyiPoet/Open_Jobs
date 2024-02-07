@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import openJob1 from '../assets/images/open-jobs-1.jpeg'
 
 function Footer() {
@@ -16,13 +17,13 @@ function Footer() {
                         <h2 className="mb-6 text-sm font-semibold text-primary uppercase">Resources</h2>
                         <ul className="text-secondary font-medium">
                             <li className="mb-4">
-                                <a href="./index.html" className="hover:underline">Home</a>
+                                <Link to="/" className="hover:underline">Home</Link>
                             </li>
                             <li className="mb-4">
-                                <a href="./pages.html" className="hover:underline">Jobs</a>
+                                <Link to="/category/6" className="hover:underline">Internships</Link>
                             </li>
                             <li className="mb-4">
-                                <a href="./about.html" className="hover:underline">About Open Jobs</a>
+                                <Link to="/about" className="hover:underline">About Open Jobs</Link>
                             </li>
                             <li>
                                 <a href="#contact-us" className="hover:underline">Contact Us</a>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect  } from 'react';
+import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function CategoriesPost() {
     
+    const { id } = useParams(); // Get the category id from the URL parameter
     const [categories, setCategories] = useState([]);
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [displayCount, setDisplayCount] = useState(1); // Initial number of articles to display
+    const [displayCount, setDisplayCount] = useState(4); // Initial number of articles to display
 
     useEffect(() => {
         // Fetch categories
@@ -22,7 +24,7 @@ function CategoriesPost() {
             });
         
         // Fetch articles
-        fetch('https://open-jobs.onrender.com/openjobs/api/article/')
+        fetch(`https://open-jobs.onrender.com/openjobs/api/article/by_category/?category=${id}`)
             .then(response => response.json())
             .then(data => {
                 setArticles(data);
@@ -32,7 +34,7 @@ function CategoriesPost() {
                 console.error('Error fetching articles:', error);
                 setLoading(false); // Set loading to false in case of error
             });
-    }, []);
+    }, [id]);
 
     const handleLoadMore = () => {
         // Increase the display count to load more comments
@@ -53,9 +55,9 @@ function CategoriesPost() {
                       </div>
                   ) : (
                     <div className="py-4 flex items-center justify-evenly flex-wrap px-2 text-xs sm:text-sm space-x-1 space-y-2 sm:space-y-4">
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All</a>
+                        <Link to="/" className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All</Link>
                         {categories.map((category) => (
-                            <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl" key={category.id}>{category.name}</a>
+                            <Link to={`/category/${category.id}`} className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl" key={category.id}>{category.name}</Link>
                         ))}
                     </div>
                   )}

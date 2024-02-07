@@ -6,7 +6,7 @@ function CategoriesPost() {
     const [categories, setCategories] = useState([]);
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [displayCount, setDisplayCount] = useState(1); // Initial number of articles to display
+    const [displayCount, setDisplayCount] = useState(4); // Initial number of articles to display
 
     useEffect(() => {
         // Fetch categories
@@ -40,7 +40,7 @@ function CategoriesPost() {
     };
 
   return (
-      <section className="py-4 md:py-16">
+      <section className="py-4 md:py-16 scroll-m-16 md:scroll-m-8" id='categoryPosts'>
           <div className="grid lg:grid-cols-5 gap-12">
               <aside className="bg-whity rounded-3xl py-8 lg:col-span-2 shadow-2xl">
                   <div className="text-center">
@@ -53,7 +53,7 @@ function CategoriesPost() {
                       </div>
                   ) : (
                     <div className="py-4 flex items-center justify-evenly flex-wrap px-2 text-xs sm:text-sm space-x-1 space-y-2 sm:space-y-4">
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All</a>
+                        <Link to="/" className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All</Link>
                         {categories.map((category) => (
                             <Link to={`/category/${category.id}`} className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl" key={category.id}>{category.name}</Link>
                         ))}
