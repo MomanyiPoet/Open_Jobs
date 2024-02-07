@@ -26,7 +26,7 @@
 npm create vite@latest
 cd my-project
 npm install
-npm run dev
+npm run dev -- --host
 
 npm install react-router-dom
 npm i @vercel/analytics
@@ -54,7 +54,7 @@ module.exports = {
   plugins: [],
 }
 
-npm run dev
+npm run dev -- --host
 ```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
