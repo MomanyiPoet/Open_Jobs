@@ -1,6 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect  } from 'react';
 
 function CategoriesPost() {
+    
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Fetch categories
+        fetch('https://open-jobs.onrender.com/openjobs/api/category/')
+            .then(response => response.json())
+            .then(data => {
+                setCategories(data);
+                setLoading(false); // Set loading to false when categories are fetched
+            })
+            .catch(error => {
+                console.error('Error fetching categories:', error);
+                setLoading(false); // Set loading to false in case of error
+            });
+    }, []);
+
   return (
     <section className="py-4 md:py-16">
             <div className="grid lg:grid-cols-5 gap-12">
@@ -8,22 +26,12 @@ function CategoriesPost() {
                     <div className="text-center">
                         <h4 className="text-secondary font-semibold text-xl">Categories</h4>
                     </div>
-                    <div className="py-4 flex items-center justify-evenly flex-wrap px-2 text-xs sm:text-sm space-x-1 space-y-2 sm:space-y-4">
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All Categories</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Marketing</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Software Engineering</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Nurse</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Financial Analyst</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Mechanic</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Farmer</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Frontend Internships</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">House Help</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Aviator Pilot</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Civil Engineer</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Human Resource</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">Hotel Manager</a>
-                        <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">HR Attachees</a>
-                    </div>
+
+                    {categories.map((category) => (
+                        <div className="py-4 flex items-center justify-evenly flex-wrap px-2 text-xs sm:text-sm space-x-1 space-y-2 sm:space-y-4" key={category.id}>
+                            <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">{category.name}</a>
+                        </div>
+                    ))}
                 </aside>
     
                 <aside className="bg-whity rounded-3xl py-8 shadow-2xl lg:col-span-3">
