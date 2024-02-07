@@ -5,8 +5,9 @@ import About from './pages/About';
 import Articles from './pages/Articles';
 import Category from './pages/Category';
 
-// import { inject } from '@vercel/analytics';
-// inject();
+import { inject } from '@vercel/analytics';
+ 
+inject();
 
 function App() {
 
