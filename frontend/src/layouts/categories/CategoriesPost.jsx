@@ -55,7 +55,7 @@ function CategoriesPost() {
                     <div className="py-4 flex items-center justify-evenly flex-wrap px-2 text-xs sm:text-sm space-x-1 space-y-2 sm:space-y-4">
                         <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl">All</a>
                         {categories.map((category) => (
-                            <Link to={`/category/${category.id}`} className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl" key={category.id}>{category.name}</Link>
+                            <a className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl" key={category.id}>{category.name}</a>
                         ))}
                     </div>
                   )}
