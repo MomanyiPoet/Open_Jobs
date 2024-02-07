@@ -5,6 +5,9 @@ import About from './pages/About';
 import Articles from './pages/Articles';
 import Category from './pages/Category';
 
+// import { inject } from '@vercel/analytics';
+// inject();
+
 function App() {
 
   return (
@@ -12,6 +15,7 @@ function App() {
       <BrowserRouter>
         <StrictMode>
           <Routes>
+            {/* <Route path="/" element={ <LandingOverlayWelcome /> } /> */}
             <Route path="/" element={ <Landing /> } />
             <Route path="/category/:id" element={ <Category /> } />
             <Route path="/articles/:id" element={ <Articles /> } />

@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://192.168.0.17:5173/']
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173', 'http://192.168.0.17:5173/', 'https://open-jobs-website.vercel.app/']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
