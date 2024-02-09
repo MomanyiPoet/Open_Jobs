@@ -49,6 +49,7 @@
     python -m pip install Pillow
     django-admin startproject openjobs .
     python manage.py collectstatic
+    pip freeze > requirements.txt
     python manage.py runserver
     ```
 
