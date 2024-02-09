@@ -50,6 +50,18 @@ function Contact() {
   return (
     <section className="py-8 scroll-m-12" id="contact-us">
             <div className="bg-whity rounded-3xl shadow-2xl px-8 py-8 md:py-12">
+            {successMessage &&
+                <div class="toast toast-bottom toast-end text-sm font-semibold italic">
+                    <div class="alert alert-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>You have a new Notification</span>
+                    </div>
+                    <div class="alert alert-success text-whity">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>{successMessage}</span>
+                    </div>
+                </div>
+            }
                 <div className="max-w-xl mx-auto text-center py-4">
                     <h4 className="text-secondary font-semibold text-4xl">Get In Touch</h4>
                     <p className="py-2 text-secondary font-light">
@@ -73,12 +85,6 @@ function Contact() {
                     <div className="px-4 sm:px-16 py-8 rounded-3xl shadow-2xl">
                         <form onSubmit={handleSubmit}>
                             <div>
-                                {successMessage &&
-                                    <div role="alert" class="alert alert-success text-sm text-whity font-semibold italic">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                        <span>{successMessage}</span>
-                                    </div>
-                                }
                                 <label className="form-control w-full max-w-2xl py-2">
                                     <div className="label">
                                         <span className="label-text text-secondary">Name</span>
