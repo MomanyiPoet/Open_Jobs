@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect  } from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar({activeLink}) {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetch('https://open-jobs.onrender.com/openjobs/api/category/')
+          .then(response => response.json())
+          .then(data => setCategories(data))
+          .catch(error => console.error('Error fetching job categories:', error));
+      }, []);
+
   return (
     <nav className="shadow-xl sticky top-0 z-50">
         <div className="navbar bg-cream max-w-7xl mx-auto">
@@ -54,10 +63,17 @@ function Navbar({activeLink}) {
                 </ul>
             </div>
             <div className="navbar-end">
-                <form method="post" className="flex flex-row items-center justify-center space-x-4 bg-cream text-darky rounded-3xl py-1 px-4">
-                    <input type="text" className="input input-xs w-full max-w-xs font-normal italic text-xs sm:text-sm bg-whity" placeholder="Search" required/>
-                    <button type="submit"><i className="fa-solid fa-magnifying-glass-location fa-shake text-darky text-lg"></i></button>
-                </form>
+                <div class="dropdown dropdown-hover dropdown-end">
+                    <div tabindex="0" role="button" class="btn m-1 bg-whity text-sm hover:bg-primary hover:text-whity border-0">Search Category</div>
+                    <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-2xl bg-cream text-secondary font-semibold rounded-box w-52">
+                        
+                        {categories.map((category) => (
+                            <li key={category.id}>
+                                <Link to={`/category/${category.id}/#categoryPosts`}>{category.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
 

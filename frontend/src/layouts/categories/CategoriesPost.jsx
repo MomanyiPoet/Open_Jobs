@@ -42,7 +42,7 @@ function CategoriesPost() {
     };
 
   return (
-      <section className="py-4 md:py-16">
+      <section className="py-4 md:py-16" id='categoryPosts'>
           <div className="grid lg:grid-cols-5 gap-12">
               <aside className="bg-whity rounded-3xl py-8 lg:col-span-2 shadow-2xl">
                   <div className="text-center">
