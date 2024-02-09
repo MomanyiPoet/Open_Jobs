@@ -1,6 +1,52 @@
 import React from 'react'
+import { useState } from 'react';
 
 function Contact() {
+
+    const [fullName, setFullName] = useState('');
+    const [message, setMessage] = useState('');
+    const [email, setEmail] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const fullNameValue = event.target.elements.fullName.value;
+        const messageValue = event.target.elements.message.value;
+        const emailValue = event.target.elements.email.value;
+
+        fetch('https://open-jobs.onrender.com/openjobs/api/contactus/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                full_name: fullNameValue,
+                email: emailValue,
+                message: messageValue,
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.id) {
+                    // Assuming the presence of an 'id' property indicates a successful submission
+                    setSuccessMessage('Message submitted successfully');
+                    setFullName('');
+                    setEmail('');
+                    setMessage('');
+                } else {
+                    // Handle error, e.g., show an error message
+                    setSuccessMessage('Failed to submit message');
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting comment:', error);
+                setSuccessMessage('An error occurred while submitting the comment');
+                setFullName('');
+                setEmail('');
+                setMessage('');
+            });
+    };
+
   return (
     <section className="py-8 scroll-m-12" id="contact-us">
             <div className="bg-whity rounded-3xl shadow-2xl px-8 py-8 md:py-12">
@@ -25,32 +71,38 @@ function Contact() {
                         <p className="text-secondary font-light text-sm">openjobs@gmail.com</p>
                     </div>
                     <div className="px-4 sm:px-16 py-8 rounded-3xl shadow-2xl">
-                        <form method="post">
+                        <form onSubmit={handleSubmit}>
                             <div>
+                                {successMessage &&
+                                    <div role="alert" class="alert alert-success text-sm text-whity font-semibold italic">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span>{successMessage}</span>
+                                    </div>
+                                }
                                 <label className="form-control w-full max-w-2xl py-2">
                                     <div className="label">
                                         <span className="label-text text-secondary">Name</span>
                                     </div>
-                                    <input type="text" placeholder="You can call me..." className="input input-bordered w-full italic shadow-md text-secondary text-sm bg-whity" required />
+                                    <input type="text" name="fullName" placeholder="You can call me..." className="input input-bordered w-full italic shadow-md text-secondary text-sm bg-whity" required value={fullName} onChange={(e) => setFullName(e.target.value)}/>
                                 </label>
 
                                 <label className="form-control w-full max-w-2xl py-2">
                                     <div className="label">
                                         <span className="label-text text-secondary">Email</span>
                                     </div>
-                                    <input type="email" placeholder="You can reach me at..." className="input input-bordered w-full italic shadow-md text-secondary text-sm bg-whity" required />
+                                    <input type="email" name="email" placeholder="You can reach me at..." className="input input-bordered w-full italic shadow-md text-secondary text-sm bg-whity" required value={email} onChange={(e) => setEmail(e.target.value)} />
                                 </label>
 
                                 <label className="form-control w-full max-w-2xl py-2">
                                     <div className="label">
                                         <span className="label-text text-secondary">Message</span>
                                     </div>
-                                    <textarea className="textarea textarea-bordered h-24 italic shadow-md text-secondary text-sm bg-whity" placeholder="I would like to say that..." required></textarea>
+                                    <textarea name="message" className="textarea textarea-bordered h-24 italic shadow-md text-secondary text-sm bg-whity" placeholder="I would like to say that..." required value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
                                 </label>
 
                                 <label className="form-control w-full max-w-2xl py-6">
                                     <div className="text-whity font-semibold text-end">
-                                        <button value="submit" className="bg-primary hover:bg-sky-800 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-500 py-2 px-4 rounded-3xl">Submit</button>
+                                        <button type='submit' value="submit" className="bg-primary hover:bg-sky-800 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-500 py-2 px-4 rounded-3xl">Submit</button>
                                     </div>
                                 </label>
 
