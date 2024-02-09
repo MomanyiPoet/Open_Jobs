@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import openJob1 from '../assets/images/open-jobs-1.jpeg'
+import openJob1 from '../assets/images/open-jobs-1.webp'
 
 function Footer() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import ceo from '../../assets/images/ceo.jpeg'
+import ceo from '../../assets/images/ceo.webp'
 
 function CEO() {
   return (

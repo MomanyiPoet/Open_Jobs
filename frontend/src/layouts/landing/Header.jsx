@@ -1,5 +1,5 @@
 import React from 'react'
-import openJobs3 from '../../assets/images/open-jobs-3.jpeg'
+import openJobs3 from '../../assets/images/open-jobs-3.webp'
 
 function Header() {
   return (
