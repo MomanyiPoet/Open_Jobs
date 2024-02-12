@@ -75,7 +75,7 @@ module.exports = {
 
 // change the script to the following
 "scripts": {
-    "build": "npx tailwindcss -i ./src/input.css -o ./build/assets/css/style.css --watch"
+    "blueprint": "npx tailwindcss -i ./src/input.css -o ./build/assets/css/style.css --watch"
 },
 ```
 
