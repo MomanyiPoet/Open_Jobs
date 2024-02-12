@@ -35,7 +35,7 @@
 
 ### HTML + CSS + Tailwind Development
 - This section identifies the code templates. Templates do not have Javascript functionalitiies and animations.
-- The templates are in the folder blueprint.
+- The templates are in the folder blueprint and blueprintv2.
 - Link to Open Jobs - [Open Jobs Template](https://momanyipoet.github.io/Open_Jobs/blueprint/build/)
 
 ## React Development
