@@ -20,7 +20,7 @@ class Article(models.Model):
     job_link = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=0)
     post_date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='article_images/', default='/article_images/defImg.jpg')
+    image = models.ImageField(upload_to='article_images/', default='/article_images/defImg.webp')
 
     def __str__(self):
         return self.title

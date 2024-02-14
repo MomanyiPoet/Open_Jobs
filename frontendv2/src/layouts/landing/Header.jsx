@@ -1,14 +1,12 @@
 import React, { useState, useEffect  } from 'react';
 import openJobs3 from '../../assets/images/open-jobs-3.webp'
 import openJobs2 from '../../assets/images/open-jobs-2.webp'
-import uN from '../../assets/images/un.png'
 
 function Header() {
 
     const [articles, setArticles] = useState([]);
     const [displayedArticles, setDisplayedArticles] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [customStyle, setCustomStyle] = useState(true);
 
     useEffect(() => {
         // Fetch articles
@@ -19,9 +17,6 @@ function Header() {
                 setLoading(false); // Set loading to false when articles are fetched
                 const topArticles = data.slice(0, 3);
                 setDisplayedArticles(topArticles); // Set popular articles as initially displayed
-                
-                const imageUrl = data.url;
-                setCustomStyle({ backgroundImage: `url(${imageUrl})` });
             })
             .catch(error => {
                 console.error('Error fetching articles:', error);
@@ -82,7 +77,7 @@ function Header() {
                             {displayedArticles.map((article) => (
                                 <div className="py-1 hover:underline" key={article.id}>
                                     <a href="#" className="flex items-center justify-start space-x-4">
-                                        <div className="p-12 sm:p-10 rounded-full bg-center bg-contain shadow-2xl transition duration-200 transform hover:scale-110" style={customStyle}>
+                                        <div className="p-12 sm:p-10 rounded-full bg-center bg-cover shadow-2xl transition duration-200 transform hover:scale-110" style={{backgroundImage: `url(${article.image})`,}}>
                                         </div>
                                         <div className="flex flex-col justify-between">
                                             <h6 className="text-secondary font-semibold text-lg">{article.title}</h6>
