@@ -4,13 +4,11 @@ import openJobs2 from '../../assets/images/open-jobs-2.webp'
 import uN from '../../assets/images/un.png'
 
 function Header() {
-    const customStyle = {
-        backgroundImage: `url(${uN})`,
-    };
 
     const [articles, setArticles] = useState([]);
     const [displayedArticles, setDisplayedArticles] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [customStyle, setCustomStyle] = useState(true);
 
     useEffect(() => {
         // Fetch articles
@@ -21,6 +19,9 @@ function Header() {
                 setLoading(false); // Set loading to false when articles are fetched
                 const topArticles = data.slice(0, 3);
                 setDisplayedArticles(topArticles); // Set popular articles as initially displayed
+                
+                const imageUrl = data.url;
+                setCustomStyle({ backgroundImage: `url(${imageUrl})` });
             })
             .catch(error => {
                 console.error('Error fetching articles:', error);
@@ -61,11 +62,11 @@ function Header() {
             <div className="bg-whity rounded-3xl px-6 py-4 shadow-2xl">
                     {/* Top */}
                     <div className="flex items-center justify-evenly py-4">
-                        <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-whity font-semibold px-8 py-2 rounded-3xl shadow-lg">
-                            <button onClick={handleRecentClick}>Recent</button>
+                        <div className="text-whity font-semibold">
+                            <button onClick={handleRecentClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Recent</button>
                         </div>
-                        <div className="bg-gradient-to-r from-cyan-500 to-blue-500 text-whity font-semibold px-8 py-2 rounded-3xl shadow-lg">
-                            <button onClick={handlePopularClick}>Popular</button>
+                        <div className="text-whity font-semibold">
+                            <button onClick={handlePopularClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Popular</button>
                         </div>
                     </div>
 
@@ -79,9 +80,9 @@ function Header() {
                         ):(
                             <>
                             {displayedArticles.map((article) => (
-                                <div className="py-1" key={article.id}>
-                                    <a href="#" className="flex items-center justify-center lg:justify-start space-x-4">
-                                        <div className="p-12 sm:p-10 rounded-full bg-center bg-contain shadow-2xl" style={customStyle}>
+                                <div className="py-1 hover:underline" key={article.id}>
+                                    <a href="#" className="flex items-center justify-start space-x-4">
+                                        <div className="p-12 sm:p-10 rounded-full bg-center bg-contain shadow-2xl transition duration-200 transform hover:scale-110" style={customStyle}>
                                         </div>
                                         <div className="flex flex-col justify-between">
                                             <h6 className="text-secondary font-semibold text-lg">{article.title}</h6>

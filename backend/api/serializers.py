@@ -9,7 +9,7 @@ class CategorySerializer(ModelSerializer):
 class ArticleSerializer(ModelSerializer):
     class Meta:
         model = Article
-        fields = ('id', 'category', 'title', 'location', 'tags', 'about', 'requirements', 'job_link', 'author', 'post_date')
+        fields = ('id', 'category', 'title', 'location', 'tags', 'about', 'requirements', 'job_link', 'author', 'post_date', 'image',)
 
 class ContactMessageSerializer(ModelSerializer):
     class Meta:
