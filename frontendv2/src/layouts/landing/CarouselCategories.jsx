@@ -28,7 +28,7 @@ function CarouselCategories() {
       ):(
         <div className="categories-carousel py-4 flex flex-row flex-wrap justify-start space-x-2 px-4 text-xs sm:text-sm shadow-2xl rounded-3xl">
           {categories.map((category) => (
-            <Link to={`/category/${category.id}`} key={category.id} className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl my-1">{category.name}</Link>
+            <Link to={`/category/${category.id}`} key={category.id} className="border font-semibold odd:border-primary even:border-secondary odd:text-primary even:text-secondary py-2 px-3 rounded-3xl shadow-xl my-1 focus:outline-none focus:ring focus:ring-primary transition duration-200 transform hover:scale-110">{category.name}</Link>
           ))}
         </div>
       )}

@@ -1,22 +1,21 @@
 import React from 'react';
-import CarouselCategories from './CarouselCategories';
-import Posts from './Posts';
+import CarouselCategories from '../landing/CarouselCategories';
+import Post from './Post';
 
-function CategoriesPost() {
-
+function ArticlePost() {
   return (
-      <section>
-        <div className='py-4' id='categoryPosts'>
+    <section>
+        <div className='py-4'>
             <div className="text-center">
                 <h4 className="text-secondary font-semibold text-xl">Categories</h4>
             </div>
 
             <CarouselCategories />
 
-            <Posts />
+            <Post />
         </div>
       </section>
   )
 }
 
-export default CategoriesPost
+export default ArticlePost

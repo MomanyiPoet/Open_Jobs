@@ -94,7 +94,7 @@ function Posts() {
                 <>
                     {articles.slice(0, 4).map((article) => (
                         <div className="py-3" key={article.id}>
-                            <Link to={`/${article.id}`} className="flex items-center space-x-4 shadow-2xl rounded-3xl">
+                            <Link to={`/${article.id}`} onClick={scrollToArticleSection} className="flex items-center space-x-4 shadow-2xl rounded-3xl">
                                 <div className="px-14 py-20 sm:p-20 rounded-s-3xl bg-center bg-cover shadow-2xl" style={{backgroundImage: `url(${article.image})`,}}>
                                 </div>
                                 <div className="flex flex-col justify-evenly">
@@ -119,7 +119,7 @@ function Posts() {
         </div>
 
         {/* Right */}
-        <div className="bg-whity rounded-3xl px-6 py-4 shadow-2xl">
+        <div className="bg-whity rounded-3xl px-6 py-4 shadow-2xl" ref={articleSectionRef}>
             <div className="py-8">
                 {/* Job Post */}
                 {loading ? (
@@ -129,7 +129,7 @@ function Posts() {
                 ):(
                     <>
                         {article && (
-                            <div ref={articleSectionRef} className="max-w-xl mx-auto mb-12 border-t-4 xl:border-t-0 xl:border-l-4 even:border-gold odd:border-primary py-6 px-8 rounded-3xl shadow-2xl">
+                            <div className="max-w-xl mx-auto mb-12 border-t-4 xl:border-t-0 xl:border-l-4 even:border-gold odd:border-primary py-6 px-8 rounded-3xl shadow-2xl">
                                 <div className="my-2 px-6 py-12 rounded-3xl bg-center bg-cover shadow-2xl relative" style={{backgroundImage: `url(${article.image})`,}} alt="Opportunities Meet Aspirations" title='Kenya Jobs | Open Jobs'>
                                     <div className="rounded-3xl absolute top-0 left-0 w-[100%] h-[100%]" style={customStyle2}></div>
                                     <div className='relative z-10'>

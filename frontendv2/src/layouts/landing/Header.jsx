@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import openJobs3 from '../../assets/images/open-jobs-3.webp'
 import openJobs2 from '../../assets/images/open-jobs-2.webp'
+import { Link } from 'react-router-dom';
 
 function Header() {
 
@@ -15,8 +16,8 @@ function Header() {
             .then(data => {
                 setArticles(data);
                 setLoading(false); // Set loading to false when articles are fetched
-                const bottomArticles = data.slice().reverse().slice(0, 3);
-                setDisplayedArticles(bottomArticles); // Set popular articles as initially displayed
+                const topArticles = data.slice(0, 3);
+                setDisplayedArticles(topArticles); // Set recent articles as initially displayed
             })
             .catch(error => {
                 console.error('Error fetching articles:', error);
@@ -76,7 +77,7 @@ function Header() {
                             <>
                             {displayedArticles.map((article) => (
                                 <div className="py-1 hover:underline" key={article.id}>
-                                    <a href="#" className="flex items-center justify-start space-x-4">
+                                    <Link to={`/article/${article.id}`} className="flex items-center justify-start space-x-4">
                                         <div className="p-12 sm:p-10 rounded-full bg-center bg-cover shadow-2xl transition duration-200 transform hover:scale-110" style={{backgroundImage: `url(${article.image})`,}} alt="Opportunities Meet Aspirations" title='Kenya Jobs | Open Jobs'>
                                         </div>
                                         <div className="flex flex-col justify-between">
@@ -86,7 +87,7 @@ function Header() {
                                                 <p>{new Date(article.post_date).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
                                             </div>
                                         </div>
-                                    </a>
+                                    </Link>
                                     <div className="py-4">
                                         <hr className="bg-secondary h-[1px] max-w-xs lg:max-w-md mx-auto" />
                                     </div>
