@@ -15,8 +15,8 @@ function Header() {
             .then(data => {
                 setArticles(data);
                 setLoading(false); // Set loading to false when articles are fetched
-                const topArticles = data.slice(0, 3);
-                setDisplayedArticles(topArticles); // Set popular articles as initially displayed
+                const bottomArticles = data.slice().reverse().slice(0, 3);
+                setDisplayedArticles(bottomArticles); // Set popular articles as initially displayed
             })
             .catch(error => {
                 console.error('Error fetching articles:', error);
@@ -25,13 +25,13 @@ function Header() {
     }, []);
 
     const handlePopularClick = () => {
-        const topArticles = articles.slice(0, 3);
-        setDisplayedArticles(topArticles);
+        const bottomArticles = articles.slice().reverse().slice(0, 3);
+        setDisplayedArticles(bottomArticles);
     };
     
     const handleRecentClick = () => {
-        const bottomArticles = articles.slice().reverse().slice(0, 3);
-        setDisplayedArticles(bottomArticles);
+        const topArticles = articles.slice(0, 3);
+        setDisplayedArticles(topArticles);
     };
 
   return (

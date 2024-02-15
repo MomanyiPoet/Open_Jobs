@@ -1,6 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import CarouselCategories from './CarouselCategories';
+import CarouselCategories from '../landing/CarouselCategories';
 import Posts from './Posts';
 
 function CategoriesPost() {

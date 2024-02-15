@@ -10,8 +10,10 @@ function App() {
       <BrowserRouter>
         <StrictMode>
           <Routes>
+            <Route path="/:id" element={ <Landing /> } />
             <Route path="/" element={ <Landing /> } />
-            <Route path="/category" element={ <Category /> } />
+            <Route path="/category/:id/:id" element={ <Category /> } />
+            <Route path="/category/:id" element={ <Category /> } />
             <Route path="/about" element={ <About /> } />
           </Routes>
         </StrictMode>

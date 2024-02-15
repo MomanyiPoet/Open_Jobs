@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar'
-import Header from '../layouts/categories/Header'
 import CategoriesPost from '../layouts/categories/CategoriesPost'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
@@ -16,7 +15,6 @@ function Category() {
     <>
         <Navbar/>
         <main className="max-w-7xl mx-auto px-4">
-            <Header />
             <CategoriesPost />
             <Contact />
             <Footer />
