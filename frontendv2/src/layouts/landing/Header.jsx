@@ -16,7 +16,7 @@ function Header() {
             .then(data => {
                 setArticles(data);
                 setLoading(false); // Set loading to false when articles are fetched
-                const topArticles = data.slice(0, 3);
+                const topArticles = data.slice().reverse().slice(0, 3);
                 setDisplayedArticles(topArticles); // Set recent articles as initially displayed
             })
             .catch(error => {
@@ -26,12 +26,12 @@ function Header() {
     }, []);
 
     const handlePopularClick = () => {
-        const bottomArticles = articles.slice().reverse().slice(0, 3);
+        const bottomArticles = articles.slice(0, 3);
         setDisplayedArticles(bottomArticles);
     };
     
     const handleRecentClick = () => {
-        const topArticles = articles.slice(0, 3);
+        const topArticles = articles.slice().reverse().slice(0, 3);
         setDisplayedArticles(topArticles);
     };
 

@@ -92,7 +92,7 @@ function Posts() {
                 </div>
             ):(
                 <>
-                    {articles.slice(0, 4).map((article) => (
+                    {articles.slice().reverse().slice(0, 4).map((article) => (
                         <div className="py-3" key={article.id}>
                             <Link to={`/${article.id}`} onClick={scrollToArticleSection} className="flex items-center space-x-4 shadow-2xl rounded-3xl">
                                 <div className="px-14 py-20 sm:p-20 rounded-s-3xl bg-center bg-cover shadow-2xl" style={{backgroundImage: `url(${article.image})`,}}>
