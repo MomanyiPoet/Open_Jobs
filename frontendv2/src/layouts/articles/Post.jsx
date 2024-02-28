@@ -33,8 +33,14 @@ function Post() {
         // Get the current page URL
         const currentPageUrl = window.location.href;
 
+        // Customize the font
+        const boldArticleHeader = `*${articleHeader}*`;
+        const italicArticleContent = `_${articleContent}_`;
+        const assistText = 'Explore more content and requirements by following the link below:';
+        const boldAssistText = `*${assistText}*`;
+
         // Encode the article information for the URL
-        const encodedArticle = encodeURIComponent(articleHeader + '\n\n' + articleContent + '\n\n' + 'Read more: ' + currentPageUrl);
+        const encodedArticle = encodeURIComponent(boldArticleHeader + '\n\n' + italicArticleContent + '\n\n' + boldAssistText + '\n' + currentPageUrl);
 
         // Generate the WhatsApp share URL
         const whatsappUrl = 'https://wa.me/?text=' + encodedArticle;
@@ -89,13 +95,16 @@ function Post() {
                                 <div className="py-2 text-secondary/80 italic text-xs font-semibold">
                                     <h6>*More Information about Application click the link to job post below:</h6>
                                 </div>
+
+                                <div className="flex flex-row items-center text-xs text-secondary space-x-2 py-2">
+                                    <p>by <span className="text-primary font-semibold italic">Elijah</span></p>
+                                    <p>{new Date(article.post_date).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
+                                </div>
             
-                                <div className="py-4 flex flex-row justify-between text-secondary">
-                                    <div className="flex flex-row items-center text-xs space-x-2">
-                                        <p>by <span className="text-primary font-semibold italic">Elijah</span></p>
-                                        <p>{new Date(article.post_date).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
+                                <div className="py-4 flex flex-row justify-between items-center text-secondary">
+                                    <div className="flex flex-row items-center text-sm space-x-2">
                                         <p className="text-primary font-semibold italic">Share</p>
-                                        <button onClick={handleClick}><i className="fa-brands fa-whatsapp text-lg text-success"></i></button>
+                                        <button onClick={handleClick}><i className="fa-brands fa-whatsapp text-success text-xl"></i></button>
                                     </div>
                                     <div className="text-whity font-semibold text-xs transition duration-200 transform hover:scale-110">
                                         <a href={article.job_link} target='Job Link' className="bg-gradient-to-r from-cyan-500 to-blue-500 focus:outline-none focus:ring focus:ring-cyan-300 py-2 px-4 rounded-3xl">More Details</a>
