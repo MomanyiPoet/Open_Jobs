@@ -7,9 +7,11 @@ function Contact() {
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setLoading(true); // Set loading to true when the form is submitted
         const fullNameValue = event.target.elements.fullName.value;
         const messageValue = event.target.elements.message.value;
         const emailValue = event.target.elements.email.value;
@@ -33,6 +35,9 @@ function Contact() {
                     setFullName('');
                     setEmail('');
                     setMessage('');
+                    setTimeout(() => {
+                        setSuccessMessage('');
+                    }, 4000); // 4 seconds
                 } else {
                     // Handle error, e.g., show an error message
                     setSuccessMessage('Failed to submit message');
@@ -44,6 +49,9 @@ function Contact() {
                 setFullName('');
                 setEmail('');
                 setMessage('');
+            })
+            .finally(() => {
+                setLoading(false); // Set loading back to false after the submission process is complete
             });
     };
 
@@ -51,7 +59,7 @@ function Contact() {
     <section className="py-8 scroll-m-12" id="contact-us">
             <div className="bg-whity rounded-3xl shadow-2xl px-8 py-8 md:py-12">
             {successMessage &&
-                <div class="toast toast-bottom toast-end text-sm font-semibold italic">
+                <div class="toast toast-bottom toast-end text-sm font-semibold italic z-50">
                     <div class="alert alert-info">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         <span>You have a new Notification</span>
@@ -106,6 +114,7 @@ function Contact() {
                                     <textarea name="message" className="textarea textarea-bordered h-24 italic shadow-md text-secondary text-sm bg-whity" placeholder="I would like to say that..." required value={message} onChange={(e) => setMessage(e.target.value)} ></textarea>
                                 </label>
 
+                                {loading && <p className='text-xs italic '>Sending Message...</p>}
                                 <label className="form-control w-full max-w-2xl py-6">
                                     <div className="text-whity font-semibold text-end">
                                         <button type='submit' value="submit" className="bg-gradient-to-r from-cyan-500 to-blue-500 focus:outline-none focus:ring focus:ring-cyan-300 py-2 px-4 rounded-3xl transition duration-200 transform hover:scale-110">Submit</button>
