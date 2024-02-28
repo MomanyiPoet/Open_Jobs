@@ -9,6 +9,11 @@ import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
 function About() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <>
         <Navbar />
