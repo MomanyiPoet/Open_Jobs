@@ -25,6 +25,24 @@ function Post() {
             });
     }, [id]);
 
+    const handleClick = () => {
+        // Get the article header and content
+        const articleHeader = document.getElementById('articleHeader').innerText;
+        const articleContent = document.getElementById('articleContent').innerText;
+
+        // Get the current page URL
+        const currentPageUrl = window.location.href;
+
+        // Encode the article information for the URL
+        const encodedArticle = encodeURIComponent(articleHeader + '\n\n' + articleContent + '\n\n' + 'Read more: ' + currentPageUrl);
+
+        // Generate the WhatsApp share URL
+        const whatsappUrl = 'https://wa.me/?text=' + encodedArticle;
+
+        // Open the share dialog
+        window.open(whatsappUrl, '_blank');
+    };
+
   return (
     <div className="py-8 grid lg:grid-cols-5 gap-4">
         {/* Left */}
@@ -42,7 +60,7 @@ function Post() {
                                 <div className="my-2 px-6 py-12 rounded-3xl bg-center bg-cover shadow-2xl relative" style={{backgroundImage: `url(${article.image})`,}} alt="Opportunities Meet Aspirations" title='Kenya Jobs | Open Jobs'>
                                     <div className="rounded-3xl absolute top-0 left-0 w-[100%] h-[100%]" style={customStyle2}></div>
                                     <div className="relative z-10">
-                                        <h2 className="text-whity text-2xl font-semibold">{article.title}</h2>
+                                        <h2 id='articleHeader' className="text-whity text-2xl font-semibold">{article.title}</h2>
                                         <div className="py-2 flex items-center space-x-4 text-whity">
                                             <i className="fa-solid fa-location-dot fa-beat-fade"></i>
                                             <p>{article.location}</p>
@@ -56,7 +74,7 @@ function Post() {
             
                                 <div className="py-2 text-secondary/80 italic text-sm">
                                     <h6 className='text-primary font-semibold italic py-2'>Description</h6>
-                                    <p>
+                                    <p id='articleContent'>
                                         {article.about}
                                     </p>
                                 </div>
@@ -73,9 +91,11 @@ function Post() {
                                 </div>
             
                                 <div className="py-4 flex flex-row justify-between text-secondary">
-                                    <div className="flex flex-row text-xs space-x-2">
+                                    <div className="flex flex-row items-center text-xs space-x-2">
                                         <p>by <span className="text-primary font-semibold italic">Elijah</span></p>
                                         <p>{new Date(article.post_date).toLocaleString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
+                                        <p className="text-primary font-semibold italic">Share</p>
+                                        <button onClick={handleClick}><i className="fa-brands fa-whatsapp text-lg text-success"></i></button>
                                     </div>
                                     <div className="text-whity font-semibold text-xs transition duration-200 transform hover:scale-110">
                                         <a href={article.job_link} target='Job Link' className="bg-gradient-to-r from-cyan-500 to-blue-500 focus:outline-none focus:ring focus:ring-cyan-300 py-2 px-4 rounded-3xl">More Details</a>
