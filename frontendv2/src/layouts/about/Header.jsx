@@ -18,12 +18,12 @@ function Header() {
             </div>
 
             <div className="max-w-2xl text-whity bg-gradient-to-r from-cyan-500 to-blue-500 rounded-3xl py-6 px-6 sm:px-12 shadow-2xl mt-4 xl:mt-0">
-                <h1 className="text-3xl sm:text-4xl py-4 font-semibold">Welcome to <span className="italic text-whity">Open Jobs</span></h1>
-                <p className="text-sm lg:text-md text-justify">
-                    Established in 2024 with the vision of becoming a premier information hub dedicated to empowering 
-                    Kenyan youths between the ages of 18 and 35. Our initiative is committed to bridging the 
-                    gap between young individuals and valuable opportunities that can enhance their 
-                    personal and professional growth.
+                <h1 className="text-lg sm:text-2xl py-4 font-semibold">Open Doors to a world of opportunities</h1>
+                <p className="text-sm lg:text-md md:text-justify font-medium">
+                    Open Jobs, founded in 2024, is a cutting-edge online platform dedicated to revolutionizing the job
+                    search experience for both candidates and employers. Our mission is to bridge the gap between
+                    talented individuals seeking employment opportunities and organizations searching for top-tier
+                    talent.
                 </p>
             </div>
         </div>

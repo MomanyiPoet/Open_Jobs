@@ -10,11 +10,20 @@ function Objectives() {
                 </div>
                 <div className="py-4 text-secondary text-justify">
                     <p className="text-sm md:text-base">
-                        The objective is to bridge the information gap between Kenyan youths and the diverse 
-                        opportunities available to them. <br/><br/>
-                        By sourcing opportunities from first-party and reputable second-party websites, 
-                        the objective is to provide accurate and reliable information that helps young 
-                        individuals make informed decisions regarding their educational and career paths.
+                        As a newly established platform, Open Jobs is committed to leveraging the latest technology and
+                        innovative strategies to streamline the recruitment process. We understand the evolving needs of
+                        both job seekers and employers in today's fast-paced job market, and we're dedicated to providing
+                        a user-friendly, efficient, and transparent platform to meet those needs. <br /><br />
+
+                        At Open Jobs, we prioritize inclusivity, diversity, and equal opportunities for all individuals,
+                        regardless of their backgrounds or experiences. We believe in creating a level playing field where
+                        every candidate has the chance to showcase their skills and potential, and every employer has
+                        access to a diverse pool of qualified candidates. <br /><br />
+
+                        With our state-of-the-art features, including advanced search options, personalized job
+                        recommendations, and seamless application tracking, Open Jobs aims to empower both job seekers
+                        and employers to make informed decisions and find the perfect match. <br /><br />
+                        Whether you're a recent graduate eager to kick-start your career
                     </p>
                 </div>
             </div>

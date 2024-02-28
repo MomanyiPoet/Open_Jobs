@@ -33,8 +33,8 @@ function Navbar({activeLink}) {
                             <ul className="p-2">
                                 <li><Link to="/about">About Us</Link></li>
                                 <li><a href="#contact-us">Contact Us</a></li>
-                                <li><a href="/forums">Forums</a></li>
-                                <li><a href="/partnerships">Partnerships</a></li>
+                                <li><Link to="/forums">Forums</Link></li>
+                                <li><Link to="/partnerships">Partnerships</Link></li>
                                 <li><Link to="/advice">Advice</Link></li>
                                 <li><Link to="/training">Training</Link></li>
                             </ul>
@@ -57,8 +57,8 @@ function Navbar({activeLink}) {
                             <ul className="p-2 bg-cream">
                                 <li><Link to="/about">About Us</Link></li>
                                 <li><a href="#contact-us">Contact Us</a></li>
-                                <li><a href="/forums">Forums</a></li>
-                                <li><a href="/partnerships">Partnerships</a></li>
+                                <li><Link to="/forums">Forums</Link></li>
+                                <li><Link to="/partnerships">Partnerships</Link></li>
                                 <li><Link to="/advice">Advice</Link></li>
                                 <li><Link to="/training">Training</Link></li>
                             </ul>

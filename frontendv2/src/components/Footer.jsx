@@ -51,10 +51,10 @@ function Footer() {
                         <h2 className="mb-6 text-sm font-semibold text-primary uppercase">Legal</h2>
                         <ul className="text-secondary font-medium">
                             <li className="mb-4">
-                                <a href="#" className="hover:underline">Privacy Policy</a>
+                                <Link to="/policy" className="hover:underline">Privacy Policy</Link>
                             </li>
                             <li>
-                                <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                                <Link to="/conditions" className="hover:underline">Terms &amp; Conditions</Link>
                             </li>
                         </ul>
                     </div>
