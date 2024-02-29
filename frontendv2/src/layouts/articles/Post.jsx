@@ -80,16 +80,12 @@ function Post() {
             
                                 <div className="py-2 text-secondary/80 italic text-sm">
                                     <h6 className='text-primary font-semibold italic py-2'>Description</h6>
-                                    <p id='articleContent'>
-                                        {article.about}
-                                    </p>
+                                    <p id='articleContent' dangerouslySetInnerHTML={{ __html: article.about }}></p>
                                 </div>
             
                                 <div className="py-2 text-secondary/80 italic text-sm">
                                     <h6 className='text-primary font-semibold italic py-2'>Requirements</h6>
-                                    <p>
-                                        {article.requirements}
-                                    </p>
+                                    <p dangerouslySetInnerHTML={{ __html: article.requirements }}></p>
                                 </div>
             
                                 <div className="py-2 text-secondary/80 italic text-xs font-semibold">
