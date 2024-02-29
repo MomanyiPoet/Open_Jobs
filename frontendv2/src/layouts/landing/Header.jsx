@@ -16,7 +16,7 @@ function Header() {
             .then(data => {
                 setArticles(data);
                 setLoading(false); // Set loading to false when articles are fetched
-                const topArticles = data.slice().reverse().slice(0, 3);
+                const topArticles = data.slice(0, 3);
                 setDisplayedArticles(topArticles); // Set recent articles as initially displayed
             })
             .catch(error => {
@@ -59,10 +59,10 @@ function Header() {
                     {/* Top */}
                     <div className="flex items-center justify-evenly py-4">
                         <div className="text-whity font-semibold">
-                            <button onClick={handleRecentClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Recent</button>
+                            <button onClick={handlePopularClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Popular</button>
                         </div>
                         <div className="text-whity font-semibold">
-                            <button onClick={handlePopularClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Popular</button>
+                            <button onClick={handleRecentClick} className='bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-2 rounded-3xl shadow-lg focus:outline-none focus:ring focus:ring-cyan-300 transition duration-200 transform hover:scale-110'>Recent</button>
                         </div>
                     </div>
 
