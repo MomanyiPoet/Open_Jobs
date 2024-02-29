@@ -35,12 +35,11 @@ function Post() {
 
         // Customize the font
         const boldArticleHeader = `*${articleHeader}*`;
-        const italicArticleContent = `_${articleContent}_`;
         const assistText = 'Explore more content and requirements by following the link below:';
         const boldAssistText = `*${assistText}*`;
 
         // Encode the article information for the URL
-        const encodedArticle = encodeURIComponent(boldArticleHeader + '\n\n' + italicArticleContent + '\n\n' + boldAssistText + '\n' + currentPageUrl);
+        const encodedArticle = encodeURIComponent(boldArticleHeader + '\n\n' + articleContent + '\n\n' + boldAssistText + '\n' + currentPageUrl);
 
         // Generate the WhatsApp share URL
         const whatsappUrl = 'https://wa.me/?text=' + encodedArticle;
