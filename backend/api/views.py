@@ -12,19 +12,6 @@ class CategoryView(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-    def retrieve(self, request, *args, **kwargs):
-        # Retrieve object by slug instead of primary key
-        slug = kwargs.get('slug')
-        if slug:
-            category = self.get_queryset().filter(slug=slug).first()
-            if category:
-                serializer = self.get_serializer(category)
-                return Response(serializer.data)
-            else:
-                return Response(status=status.HTTP_404_NOT_FOUND)
-        else:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
-
 class ArticleView(ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
@@ -32,14 +19,13 @@ class ArticleView(ModelViewSet):
     @action(detail=False, methods=['GET'])
     def by_category(self, request):
         try:
-            category_slug = request.query_params.get('category_slug', None)
-            if category_slug is not None:
-                category = get_object_or_404(Category, slug=category_slug)
-                articles = Article.objects.filter(category=category)
+            category_id = request.query_params.get('category', None)
+            if category_id is not None:
+                articles = Article.objects.filter(category=category_id)
                 serialized_articles = self.get_serializer(articles, many=True).data
                 return Response(serialized_articles)
             else:
-                return Response({'error': 'Category slug parameter is required'})
+                return Response({'error': 'Category parameter is required'})
         except Exception as e:
             return Response({'error': str(e)})
 
